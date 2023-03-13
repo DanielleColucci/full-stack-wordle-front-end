@@ -24,7 +24,6 @@ import './App.css'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [wordCount, setWordCount] = useState()
-  const [guessLimit, setGuessLimit] = useState()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -39,7 +38,6 @@ const App = () => {
 
   const updateWordCount = (num) => {
     setWordCount(num)
-    setGuessLimit(num + 5)
   }
 
   return (
@@ -77,7 +75,6 @@ const App = () => {
           element={
             <GameBoard 
               wordCount={wordCount}
-              guessLimit={guessLimit}
             />
           }
         />
