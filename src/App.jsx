@@ -13,6 +13,7 @@ import GameBoard from './pages/GameBoard/GameBoard'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import DifficultySelect from './components/DifficultySelect/DifficultySelect'
 
 // services
 import * as authService from './services/authService'
@@ -42,6 +43,7 @@ const App = () => {
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
+      <DifficultySelect updateWordCount={updateWordCount}/>
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
