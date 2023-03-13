@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
 import * as wordlist from '../../data/wordlist'
+import Board from "../../components/Board/Board"
 
 const GameBoard = ({ wordCount }) => {
   const [guessLimit, setGuessLimit] = useState()
-  const [secretWords, setSecretWords] = useState()
+  const [secretWords, setSecretWords] = useState([])
 
   useEffect(() => {
     setGuessLimit(wordCount + 5)
@@ -18,8 +19,12 @@ const GameBoard = ({ wordCount }) => {
     16: 'Sedecordle'
   }
   return (
-    <h1>{titles[wordCount]}</h1>
-    // map to boards here
+    <>
+      <h1>{titles[wordCount]}</h1>
+        {secretWords.map((word, idx) => (
+          <Board key={idx} word={word}/>
+        ))}
+    </>
   )
 }
 
