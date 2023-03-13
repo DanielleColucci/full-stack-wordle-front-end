@@ -22,6 +22,7 @@ import './App.css'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [wordCount, setWordCount] = useState()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -32,6 +33,10 @@ const App = () => {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
+  }
+
+  const updateWordCount = (num) => {
+    setWordCount(num)
   }
 
   return (
