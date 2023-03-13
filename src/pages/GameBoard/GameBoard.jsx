@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react"
+import * as wordlist from '../../data/wordlist'
 
 const GameBoard = ({ wordCount }) => {
   const [guessLimit, setGuessLimit] = useState()
-  const secretWords = []
+  const [secretWords, setSecretWords] = useState()
 
   useEffect(() => {
     setGuessLimit(wordCount + 5)
-    for (let i = wordCount; i > 0; i--) {
-      // add secret words here
-    }
+    setSecretWords(wordlist.getWord(wordCount))
   }, [wordCount])
 
   const titles = {
