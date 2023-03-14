@@ -1,3 +1,4 @@
+import styles from './GameBoard.module.css'
 import { useState, useEffect } from "react"
 import * as wordlist from '../../data/wordlist'
 import Board from "../../components/Board/Board"
@@ -22,9 +23,11 @@ const GameBoard = ({ wordCount }) => {
     <>
       <h1>{titles[wordCount]}</h1>
       <p>Try to guess {wordCount} words in {guessLimit} guesses!</p>
+      <div className={styles.gameBoard}>
         {secretWords.map((word, idx) => (
-          <Board key={idx} word={word}/>
+          <Board key={idx} word={word} guessLimit={guessLimit}/>
         ))}
+      </div>
     </>
   )
 }

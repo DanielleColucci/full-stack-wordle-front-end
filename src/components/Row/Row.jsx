@@ -1,6 +1,8 @@
+import styles from './Row.module.css'
+
 const Row = () => {
-  return (
-    <div className="row">
+  return ( 
+    <div className={styles.row}>
       <div></div>
       <div></div>
       <div></div>
