@@ -6,10 +6,12 @@ import Board from "../../components/Board/Board"
 const GameBoard = ({ wordCount }) => {
   const [guessLimit, setGuessLimit] = useState()
   const [secretWords, setSecretWords] = useState([])
+  const [guesses, setGuesses] = useState([])
 
   useEffect(() => {
     setGuessLimit(wordCount + 5)
     setSecretWords(wordlist.getWord(wordCount))
+    setGuesses([])
   }, [wordCount])
 
   const titles = {
@@ -25,7 +27,12 @@ const GameBoard = ({ wordCount }) => {
       <p>Try to guess {wordCount} words in {guessLimit} guesses!</p>
       <div className={styles.gameBoard}>
         {secretWords.map((word, idx) => (
-          <Board key={idx} word={word} guessLimit={guessLimit}/>
+          <Board 
+            key={idx} 
+            word={word} 
+            guessLimit={guessLimit}
+            guesses={guesses}
+          />
         ))}
       </div>
     </>
