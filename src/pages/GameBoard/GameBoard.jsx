@@ -21,6 +21,7 @@ const GameBoard = ({ wordCount }) => {
   return (
     <>
       <h1>{titles[wordCount]}</h1>
+      <p>Try to guess {wordCount} words in {guessLimit} guesses!</p>
         {secretWords.map((word, idx) => (
           <Board key={idx} word={word}/>
         ))}
