@@ -1,5 +1,5 @@
 import styles from './Board.module.css'
-import Row from "../Row/Row"
+import CurrentRow from "../Row/CurrentRow"
 import UsedRow from '../Row/UsedRow'
 import EmptyRow from '../Row/EmptyRow'
 
@@ -11,7 +11,7 @@ const Board = (props) => {
       {props.guesses.map((guess, idx) => (
         <UsedRow key={idx} guess={guess}/>
       ))}
-      <Row />
+      <CurrentRow />
       {emptyRows.map((row, idx) => (
         <EmptyRow key={idx} />
       ))}

@@ -1,7 +1,7 @@
 import styles from './Row.module.css'
 import { useState } from 'react'
 
-const Row = () => {
+const CurrentRow = () => {
   const [form, setForm] = useState({
     1: '',
     2: '',
@@ -69,4 +69,4 @@ const Row = () => {
   )
 }
 
-export default Row
+export default CurrentRow
