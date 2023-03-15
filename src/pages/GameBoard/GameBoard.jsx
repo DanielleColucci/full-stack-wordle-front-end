@@ -9,14 +9,12 @@ const GameBoard = ({ wordCount }) => {
   const [guesses, setGuesses] = useState([])
   const [currentGuess, setCurrentGuess] = useState('')
   const [charCount, setCharCount] = useState(0)
-  const [paddedGuess, setPaddedGuess] = useState('     ')
 
   useEffect(() => {
     setGuessLimit(wordCount + 5)
     setSecretWords(wordlist.getWord(wordCount))
     setGuesses([])
     setCurrentGuess('')
-    setPaddedGuess('     ')
   }, [wordCount])
   
   const titles = {
@@ -32,11 +30,9 @@ const GameBoard = ({ wordCount }) => {
       const key = e.key.toLowerCase()
       if (key.length === 1 && key >= 'a' && key <= 'z' && charCount < 5) {
         setCurrentGuess(currentGuess + key)
-        setPaddedGuess(currentGuess.padEnd(5, ' '))
         setCharCount(charCount + 1)
-      } else if (key === 'backspace' && charCount >= 0) {
+      } else if (key === 'backspace' && charCount > 0) {
         setCurrentGuess(currentGuess.slice(0, -1))
-        setPaddedGuess(currentGuess.padEnd(5, ' '))
         setCharCount(charCount - 1)
       }
     }
@@ -57,8 +53,6 @@ const GameBoard = ({ wordCount }) => {
             word={word} 
             guessLimit={guessLimit}
             guesses={guesses}
-            // handleInput={handleInput}
-            paddedGuess={paddedGuess}
             currentGuess={currentGuess}
           />
         ))}
