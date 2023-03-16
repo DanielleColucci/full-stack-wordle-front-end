@@ -36,7 +36,9 @@ const GameBoard = ({ wordCount }) => {
         setCurrentGuess(currentGuess.slice(0, -1))
         setCharCount(charCount - 1)
       } else if (key === 'enter' && charCount === 5){
-        utilities.onGuess(currentGuess)
+        if (wordlist.checkWord(currentGuess)) {
+          setGuesses([...guesses, currentGuess])
+        }
       }
     }
     window.addEventListener('keydown', handleInput)
