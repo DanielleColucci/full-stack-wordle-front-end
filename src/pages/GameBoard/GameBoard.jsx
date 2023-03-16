@@ -10,12 +10,16 @@ const GameBoard = ({ wordCount }) => {
   const [guesses, setGuesses] = useState([])
   const [currentGuess, setCurrentGuess] = useState('')
   const [charCount, setCharCount] = useState(0)
+  const [winner, setWinner] = useState(false)
+  const [loss, setLoss] = useState(false)
 
   useEffect(() => {
     setGuessLimit(wordCount + 5)
     setSecretWords(wordlist.getWord(wordCount))
     setGuesses([])
     setCurrentGuess('')
+    setWinner(false)
+    setLoss(false)
   }, [wordCount])
   
   const titles = {
