@@ -34,6 +34,8 @@ const GameBoard = ({ wordCount }) => {
       } else if (key === 'backspace' && charCount > 0) {
         setCurrentGuess(currentGuess.slice(0, -1))
         setCharCount(charCount - 1)
+      } else if (key === 'enter' && charCount === 5){
+        console.log('entering guess');
       }
     }
     window.addEventListener('keydown', handleInput)
