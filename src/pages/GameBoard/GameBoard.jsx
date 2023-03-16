@@ -43,6 +43,8 @@ const GameBoard = ({ wordCount }) => {
         } else if (key === 'enter' && charCount === 5){
           if (wordlist.checkWord(currentGuess)) {
             setGuesses([...guesses, currentGuess])
+            setCurrentGuess('')
+            setCharCount(0)
           }
         }
       }
