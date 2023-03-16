@@ -1,5 +1,5 @@
-function onGuess() {
-  
+function onGuess(currentGuess) {
+  console.log('entering guess')
 }
 
 export {

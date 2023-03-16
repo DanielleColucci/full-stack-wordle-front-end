@@ -1,6 +1,7 @@
 import styles from './GameBoard.module.css'
 import { useState, useEffect } from "react"
 import * as wordlist from '../../data/wordlist'
+import * as utilities from '../../utilities/utilities'
 import Board from "../../components/Board/Board"
 
 const GameBoard = ({ wordCount }) => {
@@ -35,7 +36,7 @@ const GameBoard = ({ wordCount }) => {
         setCurrentGuess(currentGuess.slice(0, -1))
         setCharCount(charCount - 1)
       } else if (key === 'enter' && charCount === 5){
-        console.log('entering guess');
+        utilities.onGuess(currentGuess)
       }
     }
     window.addEventListener('keydown', handleInput)
