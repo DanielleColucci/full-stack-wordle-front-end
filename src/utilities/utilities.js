@@ -1,5 +1,7 @@
+import * as wordlist from '../data/wordlist'
+
 function onGuess(currentGuess) {
-  console.log('entering guess')
+  if (wordlist.checkWord(currentGuess)) console.log('valid guess')
 }
 
 export {
