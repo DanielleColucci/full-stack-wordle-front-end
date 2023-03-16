@@ -4,7 +4,7 @@ import UsedRow from '../Row/UsedRow'
 import EmptyRow from '../Row/EmptyRow'
 
 const Board = (props) => {
-  const emptyRows = new Array(props.guessLimit - props.guesses.length - 1).fill(null)
+  const emptyRows = props.guesses.length < props.guessLimit ? new Array(props.guessLimit - props.guesses.length - 1).fill(null): []
   return (
     <div className={styles.board}>
       {props.guesses.map((guess, idx) => (
