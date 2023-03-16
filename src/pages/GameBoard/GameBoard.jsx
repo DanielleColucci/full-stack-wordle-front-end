@@ -33,15 +33,17 @@ const GameBoard = ({ wordCount }) => {
   useEffect(() => {
     const handleInput = (e) => {
       const key = e.key.toLowerCase()
-      if (key.length === 1 && key >= 'a' && key <= 'z' && charCount < 5) {
-        setCurrentGuess(currentGuess + key)
-        setCharCount(charCount + 1)
-      } else if (key === 'backspace' && charCount > 0) {
-        setCurrentGuess(currentGuess.slice(0, -1))
-        setCharCount(charCount - 1)
-      } else if (key === 'enter' && charCount === 5){
-        if (wordlist.checkWord(currentGuess)) {
-          setGuesses([...guesses, currentGuess])
+      if (!winner && !loss) {
+        if (key.length === 1 && key >= 'a' && key <= 'z' && charCount < 5) {
+          setCurrentGuess(currentGuess + key)
+          setCharCount(charCount + 1)
+        } else if (key === 'backspace' && charCount > 0) {
+          setCurrentGuess(currentGuess.slice(0, -1))
+          setCharCount(charCount - 1)
+        } else if (key === 'enter' && charCount === 5){
+          if (wordlist.checkWord(currentGuess)) {
+            setGuesses([...guesses, currentGuess])
+          }
         }
       }
     }
