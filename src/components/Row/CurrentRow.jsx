@@ -5,14 +5,18 @@ const CurrentRow = (props) => {
   const emptyLetters = Array(5 - props.currentGuess.length).fill(null)
   
   return ( 
-    <div className={styles.row}>
-      {currentGuessArr.map((letter, idx) => (
-        <div key={idx}>{letter}</div>
-      ))}
-      {emptyLetters.map((letter, idx) => (
-        <div key={idx}>{letter}</div>
-      ))}
-    </div>
+    <>
+      {props.guesses.length < props.guessLimit && 
+        <div className={styles.row}>
+          {currentGuessArr.map((letter, idx) => (
+            <div key={idx}>{letter}</div>
+          ))}
+          {emptyLetters.map((letter, idx) => (
+            <div key={idx}>{letter}</div>
+          ))}
+        </div>
+      }
+    </>
   )
 }
 

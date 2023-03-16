@@ -10,7 +10,11 @@ const Board = (props) => {
       {props.guesses.map((guess, idx) => (
         <UsedRow key={idx} guess={guess}/>
       ))}
-      <CurrentRow currentGuess={props.currentGuess}/>
+      <CurrentRow 
+        currentGuess={props.currentGuess}
+        guesses={props.guesses}
+        guessLimit={props.guessLimit}
+      />
       {emptyRows.map((row, idx) => (
         <EmptyRow key={idx} />
       ))}
