@@ -12,3 +12,15 @@
   justify-content: center;
   align-items: center;
 }
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: goldenrod;
+}
+
+.grey {
+  background-color: grey;
+}
