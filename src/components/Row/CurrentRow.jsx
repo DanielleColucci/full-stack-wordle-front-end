@@ -6,7 +6,7 @@ const CurrentRow = (props) => {
   
   return ( 
     <>
-      {props.guesses.length < props.guessLimit && 
+      {(props.guesses.length < props.guessLimit && props.wordGuessIdx < 0) && 
         <div className={styles.row}>
           {currentGuessArr.map((letter, idx) => (
             <div key={idx}>{letter}</div>

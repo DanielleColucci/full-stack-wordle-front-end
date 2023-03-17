@@ -4,20 +4,39 @@ import UsedRow from '../Row/UsedRow'
 import EmptyRow from '../Row/EmptyRow'
 
 const Board = (props) => {
-  const emptyRows = props.guesses.length < props.guessLimit ? new Array(props.guessLimit - props.guesses.length - 1).fill(null): []
+  const { guesses, guessLimit, word } = props
+  const wordGuessIdx = guesses.indexOf(word)
+  let emptyRows 
+  if (wordGuessIdx >= 0) emptyRows = Array(guessLimit - wordGuessIdx - 1).fill(null)
+  else if (guesses.length < guessLimit) emptyRows = Array(guessLimit - guesses.length - 1).fill(null)
+  else emptyRows = []
   return (
     <div className={styles.board}>
-      {props.guesses.map((guess, idx) => (
-        <UsedRow 
-          key={idx} 
-          guess={guess}
-          word={props.word}
-        />
-      ))}
+      {wordGuessIdx >= 0 ?
+        props.guesses.map((guess, idx) => {
+        return idx <= wordGuessIdx ? 
+          <UsedRow 
+            key={idx} 
+            guess={guess}
+            word={word}
+          />
+          :
+          <></>
+        })
+        : 
+        props.guesses.map((guess, idx) => (
+          <UsedRow 
+            key={idx}
+            guess={guess}
+            word={word}
+          />
+        ))
+      }
       <CurrentRow 
+        wordGuessIdx={wordGuessIdx}
         currentGuess={props.currentGuess}
-        guesses={props.guesses}
-        guessLimit={props.guessLimit}
+        guesses={guesses}
+        guessLimit={guessLimit}
       />
       {emptyRows.map((row, idx) => (
         <EmptyRow key={idx} />
