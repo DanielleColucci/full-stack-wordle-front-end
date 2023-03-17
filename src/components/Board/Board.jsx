@@ -14,14 +14,12 @@ const Board = (props) => {
     <div className={styles.board}>
       {wordGuessIdx >= 0 ?
         guesses.map((guess, idx) => {
-        return idx <= wordGuessIdx ? 
+        return idx <= wordGuessIdx &&
           <UsedRow 
             key={idx} 
             guess={guess}
             word={word}
           />
-          :
-          <div key={idx}></div>
         })
         : 
         guesses.map((guess, idx) => (
