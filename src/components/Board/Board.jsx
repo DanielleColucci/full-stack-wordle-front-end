@@ -21,7 +21,7 @@ const Board = (props) => {
             word={word}
           />
           :
-          <></>
+          <div key={idx}></div>
         })
         : 
         props.guesses.map((guess, idx) => (
