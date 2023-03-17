@@ -12,6 +12,7 @@ const GameBoard = ({ wordCount }) => {
   const [charCount, setCharCount] = useState(0)
   const [winner, setWinner] = useState(false)
   const [loss, setLoss] = useState(false)
+  const [message, setMessage] = useState('')
 
   useEffect(() => {
     setGuessLimit(wordCount + 5)
@@ -20,6 +21,7 @@ const GameBoard = ({ wordCount }) => {
     setCurrentGuess('')
     setWinner(false)
     setLoss(false)
+    setMessage(messages.intro)
   }, [wordCount])
   
   const titles = {
@@ -28,6 +30,13 @@ const GameBoard = ({ wordCount }) => {
     4: 'Quordle',
     8: 'Octordle',
     16: 'Sedecordle'
+  }
+
+  const messages = {
+    intro: `Try to guess ${wordCount} words in ${guessLimit} guesses!`,
+    win: 'You won! Play again?',
+    loss: `Better luck next time! The ${wordCount === 1 ? `word was: ${secretWords[0]}` : `words were: ${secretWords.join(', ')}`}`,
+    invalid: 'invalid guess'
   }
   
   useEffect(() => {
@@ -43,6 +52,7 @@ const GameBoard = ({ wordCount }) => {
         } else if (key === 'enter' && charCount === 5){
           if (wordlist.checkWord(currentGuess)) {
             setGuesses([...guesses, currentGuess])
+            setMessage('')
             setCurrentGuess('')
             setCharCount(0)
           }
@@ -58,7 +68,7 @@ const GameBoard = ({ wordCount }) => {
   return (
     <>
       <h1>{titles[wordCount]}</h1>
-      <p>Try to guess {wordCount} words in {guessLimit} guesses!</p>
+      <p>{message}</p>
       <div className={styles.gameBoard}>
         {secretWords.map((word, idx) => (
           <Board 
