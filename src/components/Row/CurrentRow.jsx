@@ -9,10 +9,10 @@ const CurrentRow = (props) => {
       {(props.guesses.length < props.guessLimit && props.wordGuessIdx < 0) && 
         <div className={styles.row}>
           {currentGuessArr.map((letter, idx) => (
-            <div key={idx}>{letter}</div>
+            <div key={idx}>{letter.toUpperCase()}</div>
           ))}
           {emptyLetters.map((letter, idx) => (
-            <div key={idx}>{letter}</div>
+            <div key={idx}></div>
           ))}
         </div>
       }

@@ -7,7 +7,7 @@ const UsedRow = ({ guess, word }) => {
   return (
     <div className={styles.row}>
       {guessArr.map((letter, idx) => (
-        <div className={styles[colorsArr[idx]]} key={idx}>{letter}</div>
+        <div className={styles[colorsArr[idx]]} key={idx}>{letter.toUpperCase()}</div>
       ))}
     </div>
   )
