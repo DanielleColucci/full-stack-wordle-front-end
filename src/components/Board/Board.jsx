@@ -8,7 +8,11 @@ const Board = (props) => {
   return (
     <div className={styles.board}>
       {props.guesses.map((guess, idx) => (
-        <UsedRow key={idx} guess={guess}/>
+        <UsedRow 
+          key={idx} 
+          guess={guess}
+          word={props.word}
+        />
       ))}
       <CurrentRow 
         currentGuess={props.currentGuess}
