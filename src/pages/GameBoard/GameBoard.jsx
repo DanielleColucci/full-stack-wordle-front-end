@@ -14,17 +14,6 @@ const GameBoard = ({ wordCount }) => {
   const [loss, setLoss] = useState(false)
   const [message, setMessage] = useState('')
 
-  useEffect(() => {
-    setGuessLimit(wordCount + 5)
-    setSecretWords(wordlist.getWord(wordCount))
-    setGuesses([])
-    setCurrentGuess('')
-    setCharCount(0)
-    setWinner(false)
-    setLoss(false)
-    setMessage(messages.intro)
-  }, [wordCount])
-  
   const titles = {
     1: 'Wordle',
     2: 'Dordle',
@@ -39,6 +28,17 @@ const GameBoard = ({ wordCount }) => {
     loss: `Better luck next time! The ${wordCount === 1 ? `word was: ${secretWords[0]}` : `words were: ${secretWords.join(', ')}`}`,
     invalid: 'invalid guess'
   }
+
+  useEffect(() => {
+    setGuessLimit(wordCount + 5)
+    setSecretWords(wordlist.getWord(wordCount))
+    setGuesses([])
+    setCurrentGuess('')
+    setCharCount(0)
+    setWinner(false)
+    setLoss(false)
+    setMessage(messages.intro)
+  }, [messages.intro, wordCount])
   
   useEffect(() => {
     const handleInput = (e) => {
