@@ -19,6 +19,7 @@ const GameBoard = ({ wordCount }) => {
     setSecretWords(wordlist.getWord(wordCount))
     setGuesses([])
     setCurrentGuess('')
+    setCharCount(0)
     setWinner(false)
     setLoss(false)
     setMessage(messages.intro)
@@ -58,6 +59,9 @@ const GameBoard = ({ wordCount }) => {
           }
         }
       }
+      setWinner(utilities.checkWinner(guesses, secretWords))
+      setLoss(utilities.checkLoss(guesses, guessLimit))
+      if (winner) setMessage(messages.win)
     }
     window.addEventListener('keydown', handleInput)
     return () => {
