@@ -1,0 +1,28 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vmin;
+}
+
+.keyboardRow {
+  display: flex;
+  gap: 0.5vmin;
+}
+
+.key {
+  font-size: 2vmin;
+  height: 6vmin;
+  width: 5vmin;
+  border: 1px solid black;
+  border-radius: 0.5vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.enter, .backspace {
+  width: fit-content;
+  padding: 0 8px;
+}

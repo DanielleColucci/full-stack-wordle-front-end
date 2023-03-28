@@ -2,7 +2,7 @@ import styles from './Keyboard.module.css'
 
 const Keyboard = () => {
   return (
-    <div id='keyboard'>
+    <div className={styles.keyboard}>
       <div className={styles.keyboardRow}>
         <div id='q' className={styles.key}>Q</div>
         <div id='w' className={styles.key}>W</div>
@@ -15,7 +15,7 @@ const Keyboard = () => {
         <div id='o' className={styles.key}>O</div>
         <div id='p' className={styles.key}>P</div>
       </div>
-      <div className={styles.keybordRow}>
+      <div className={styles.keyboardRow}>
         <div id='a' className={styles.key}>A</div>
         <div id='s' className={styles.key}>S</div>
         <div id='d' className={styles.key}>D</div>
@@ -27,7 +27,7 @@ const Keyboard = () => {
         <div id='l' className={styles.key}>L</div>
       </div>
       <div className={styles.keyboardRow}>
-        <div id='enter' className={styles.key}>ENTER</div>
+        <div id='enter' className={`${styles.key} ${styles.enter}`}>ENTER</div>
         <div id='z' className={styles.key}>Z</div>
         <div id='x' className={styles.key}>X</div>
         <div id='c' className={styles.key}>C</div>
@@ -35,7 +35,7 @@ const Keyboard = () => {
         <div id='b' className={styles.key}>B</div>
         <div id='n' className={styles.key}>N</div>
         <div id='m' className={styles.key}>M</div>
-        <div id='backspace' className={styles.key}>DELETE</div>
+        <div id='backspace' className={`${styles.key} ${styles.backspace}`}>DELETE</div>
       </div>
     </div>
   )
