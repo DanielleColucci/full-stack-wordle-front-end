@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import * as wordlist from '../../data/wordlist'
 import * as utilities from '../../utilities/utilities'
 import Board from "../../components/Board/Board"
+import Keyboard from '../../components/Keyboard/Keyboard'
 
 const GameBoard = ({ wordCount }) => {
   const [guessLimit, setGuessLimit] = useState()
@@ -88,6 +89,7 @@ const GameBoard = ({ wordCount }) => {
           />
         ))}
       </div>
+      <Keyboard />
     </>
   )
 }
