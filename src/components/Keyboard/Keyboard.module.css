@@ -3,15 +3,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5vmin;
+  gap: 4px;
 }
 
 .keyboardRow {
   display: flex;
-  gap: 0.5vmin;
+  gap: 4px;
 }
 
 .key {
+  box-sizing: border-box;
   font-size: 2vmin;
   height: 6vmin;
   width: 5vmin;
@@ -22,7 +23,21 @@
   align-items: center;
 }
 
-.enter, .backspace {
-  width: fit-content;
-  padding: 0 8px;
+.enterTop {
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.enterLeft {
+  border-right: none;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.enterRight {
+  border-left: none;
+  border-top: none;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
 }

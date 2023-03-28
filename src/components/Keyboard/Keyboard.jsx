@@ -25,9 +25,10 @@ const Keyboard = () => {
         <div id='j' className={styles.key}>J</div>
         <div id='k' className={styles.key}>K</div>
         <div id='l' className={styles.key}>L</div>
+        <div id='enter' className={`${styles.key} ${styles.enterTop}`}></div>
       </div>
       <div className={styles.keyboardRow}>
-        <div id='enter' className={`${styles.key} ${styles.enter}`}>ENTER</div>
+        <div id='backspace' className={styles.key}>⌫</div>
         <div id='z' className={styles.key}>Z</div>
         <div id='x' className={styles.key}>X</div>
         <div id='c' className={styles.key}>C</div>
@@ -35,7 +36,8 @@ const Keyboard = () => {
         <div id='b' className={styles.key}>B</div>
         <div id='n' className={styles.key}>N</div>
         <div id='m' className={styles.key}>M</div>
-        <div id='backspace' className={`${styles.key} ${styles.backspace}`}>DELETE</div>
+        <div id='enter' className={`${styles.key} ${styles.enterLeft}`}></div>
+        <div id='enter' className={`${styles.key} ${styles.enterRight}`}>↵</div>
       </div>
     </div>
   )
