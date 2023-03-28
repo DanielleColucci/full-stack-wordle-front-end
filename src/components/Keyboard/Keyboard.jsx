@@ -28,7 +28,7 @@ const Keyboard = () => {
         <div id='enter' className={`${styles.key} ${styles.enterTop}`}></div>
       </div>
       <div className={styles.keyboardRow}>
-        <div id='backspace' className={styles.key}>⌫</div>
+        <div id='backspace' className={`${styles.key} ${styles.backspace}`}>⌫</div>
         <div id='z' className={styles.key}>Z</div>
         <div id='x' className={styles.key}>X</div>
         <div id='c' className={styles.key}>C</div>

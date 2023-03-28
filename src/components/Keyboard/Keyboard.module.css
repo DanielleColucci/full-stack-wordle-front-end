@@ -3,41 +3,46 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .keyboardRow {
   display: flex;
-  gap: 4px;
+  gap: 2px;
 }
 
 .key {
   box-sizing: border-box;
-  font-size: 2vmin;
-  height: 6vmin;
-  width: 5vmin;
+  font-weight: bold;
+  font-size: 24px;
+  height: 56px;
+  width: 48px;
   border: 1px solid black;
-  border-radius: 0.5vmin;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.key:hover {
+  cursor: pointer;
+}
+
 .enterTop {
   border-bottom: none;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 .enterLeft {
   border-right: none;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
 }
 
 .enterRight {
   border-left: none;
   border-top: none;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: 0;
+  font-size: 40px;
+  justify-content: flex-start;
+}
+
+.backspace {
+  font-size: 32px;
+  font-weight: normal;
 }
