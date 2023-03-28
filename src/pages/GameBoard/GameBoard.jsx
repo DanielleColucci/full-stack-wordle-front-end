@@ -89,7 +89,7 @@ const GameBoard = ({ wordCount }) => {
           />
         ))}
       </div>
-      <Keyboard />
+      {wordCount && <Keyboard />}
     </>
   )
 }
