@@ -56,19 +56,22 @@ const GameBoard = ({ wordCount }) => {
             setMessage('')
             setCurrentGuess('')
             setCharCount(0)
-            setWinner(utilities.checkWinner(guesses, secretWords))
-            setLoss(utilities.checkLoss(guesses, guessLimit))
           }
         }
       }
-      if (winner) setMessage(messages.win)
-      else if (loss) setMessage(messages.loss)
     }
     window.addEventListener('keydown', handleInput)
     return () => {
       window.removeEventListener('keydown', handleInput)
     }
   }, [currentGuess, charCount, winner, loss, messages.win, messages.loss, guesses, secretWords, guessLimit])
+
+  useEffect(() => {
+    setWinner(utilities.checkWinner(guesses, secretWords))
+    setLoss(utilities.checkLoss(guesses, guessLimit))
+    if (winner) setMessage(messages.win)
+    else if (loss) setMessage(messages.loss)
+  }, [winner, loss, messages.win, messages.loss, guesses, secretWords, guessLimit])
 
   return (
     <>
