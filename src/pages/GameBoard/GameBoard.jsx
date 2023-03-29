@@ -75,7 +75,23 @@ const GameBoard = ({ wordCount }) => {
   }, [winner, loss, messages.win, messages.loss, guesses, secretWords, guessLimit])
 
   const onClick = (evt) => {
-    console.log(evt)
+    const key = evt.target.id
+    if (!winner && !loss) {
+      if (key.length === 1 && key >= 'a' && key <= 'z' && charCount < 5) {
+        setCurrentGuess(currentGuess + key)
+        setCharCount(charCount + 1)
+      } else if (key === 'backspace' && charCount > 0) {
+        setCurrentGuess(currentGuess.slice(0, -1))
+        setCharCount(charCount - 1)
+      } else if (key === 'enter' && charCount === 5) {
+        if (wordlist.checkWord(currentGuess)) {
+          setGuesses([...guesses, currentGuess])
+          setMessage('')
+          setCurrentGuess('')
+          setCharCount(0)
+        }
+      }
+    }
   }
 
   return (
