@@ -14,6 +14,7 @@ const GameBoard = ({ wordCount }) => {
   const [winner, setWinner] = useState(false)
   const [loss, setLoss] = useState(false)
   const [message, setMessage] = useState('')
+  const [usedLetters, setUsedLetters] = useState([])
 
   const titles = {
     1: 'Wordle',
@@ -38,6 +39,7 @@ const GameBoard = ({ wordCount }) => {
     setCharCount(0)
     setWinner(false)
     setLoss(false)
+    setUsedLetters([])
     setMessage(messages.intro)
   }, [messages.intro, wordCount])
 
@@ -52,6 +54,9 @@ const GameBoard = ({ wordCount }) => {
         setCharCount(charCount - 1)
       } else if (key === 'enter' && charCount === 5){
         if (wordlist.checkWord(currentGuess)) {
+          currentGuess.split('').forEach(c => {
+            if (!usedLetters.includes(c)) usedLetters.push(c)
+          })
           setGuesses([...guesses, currentGuess])
           setMessage('')
           setCurrentGuess('')
@@ -59,7 +64,7 @@ const GameBoard = ({ wordCount }) => {
         }
       }
     }
-  }, [charCount, currentGuess, guesses, loss, winner])
+  }, [charCount, currentGuess, guesses, loss, usedLetters, winner])
   
   useEffect(() => {
     window.addEventListener('keydown', updateGameState)
@@ -90,7 +95,7 @@ const GameBoard = ({ wordCount }) => {
           />
         ))}
       </div>
-      {wordCount && <Keyboard updateGameState={updateGameState} />}
+      {wordCount && <Keyboard updateGameState={updateGameState} usedLetters={usedLetters}/>}
     </>
   )
 }

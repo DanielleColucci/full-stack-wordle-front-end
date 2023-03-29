@@ -46,3 +46,7 @@
   font-size: 32px;
   font-weight: normal;
 }
+
+.usedLetter {
+  background-color: grey;
+}

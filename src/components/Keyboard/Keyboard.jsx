@@ -1,43 +1,221 @@
 import styles from './Keyboard.module.css'
 
-const Keyboard = (props) => {
+const Keyboard = ({ updateGameState, usedLetters}) => {
   return (
     <div className={styles.keyboard}>
       <div className={styles.keyboardRow}>
-        <div id='q' onClick={props.updateGameState} className={styles.key}>Q</div>
-        <div id='w' onClick={props.updateGameState} className={styles.key}>W</div>
-        <div id='e' onClick={props.updateGameState} className={styles.key}>E</div>
-        <div id='r' onClick={props.updateGameState} className={styles.key}>R</div>
-        <div id='t' onClick={props.updateGameState} className={styles.key}>T</div>
-        <div id='y' onClick={props.updateGameState} className={styles.key}>Y</div>
-        <div id='u' onClick={props.updateGameState} className={styles.key}>U</div>
-        <div id='i' onClick={props.updateGameState} className={styles.key}>I</div>
-        <div id='o' onClick={props.updateGameState} className={styles.key}>O</div>
-        <div id='p' onClick={props.updateGameState} className={styles.key}>P</div>
+        <div 
+          id='q' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('q') ? styles.usedLetter : ''}`}
+        >
+          Q
+        </div>
+        <div 
+          id='w' 
+          onClick={updateGameState}
+          className={`${styles.key} ${usedLetters.includes('w') ? styles.usedLetter : ''}`}
+        >
+          W
+        </div>
+        <div 
+          id='e' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('e') ? styles.usedLetter : ''}`}
+        >
+          E
+        </div>
+        <div 
+          id='r' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('r') ? styles.usedLetter : ''}`}
+        >
+          R
+        </div>
+        <div 
+          id='t' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('t') ? styles.usedLetter : ''}`}
+        >
+          T
+        </div>
+        <div 
+          id='y' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('y') ? styles.usedLetter : ''}`}
+        >
+          Y
+        </div>
+        <div 
+          id='u' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('u') ? styles.usedLetter : ''}`}
+        >
+          U
+        </div>
+        <div 
+          id='i' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('i') ? styles.usedLetter : ''}`}
+        >
+          I
+        </div>
+        <div 
+          id='o' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('o') ? styles.usedLetter : ''}`}
+        >
+          O
+        </div>
+        <div 
+          id='p' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('p') ? styles.usedLetter : ''}`}
+        >
+          P
+        </div>
       </div>
       <div className={styles.keyboardRow}>
-        <div id='a' onClick={props.updateGameState} className={styles.key}>A</div>
-        <div id='s' onClick={props.updateGameState} className={styles.key}>S</div>
-        <div id='d' onClick={props.updateGameState} className={styles.key}>D</div>
-        <div id='f' onClick={props.updateGameState} className={styles.key}>F</div>
-        <div id='g' onClick={props.updateGameState} className={styles.key}>G</div>
-        <div id='h' onClick={props.updateGameState} className={styles.key}>H</div>
-        <div id='j' onClick={props.updateGameState} className={styles.key}>J</div>
-        <div id='k' onClick={props.updateGameState} className={styles.key}>K</div>
-        <div id='l' onClick={props.updateGameState} className={styles.key}>L</div>
-        <div id='enter' onClick={props.updateGameState} className={`${styles.key} ${styles.enterTop}`}></div>
+        <div 
+          id='a' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('a') ? styles.usedLetter : ''}`}
+        >
+          A
+        </div>
+        <div 
+          id='s'
+          onClick={updateGameState}
+          className={`${styles.key} ${usedLetters.includes('s') ? styles.usedLetter : ''}`}
+        >
+          S
+        </div>
+        <div 
+          id='d' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('d') ? styles.usedLetter : ''}`}
+        >
+          D
+        </div>
+        <div 
+          id='f' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('f') ? styles.usedLetter : ''}`}
+        >
+          F
+        </div>
+        <div 
+          id='g' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('g') ? styles.usedLetter : ''}`}
+        >
+          G
+        </div>
+        <div 
+          id='h' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('h') ? styles.usedLetter : ''}`}
+        >
+          H
+        </div>
+        <div 
+          id='j' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('j') ? styles.usedLetter : ''}`}
+        >
+          J
+        </div>
+        <div 
+          id='k' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('k') ? styles.usedLetter : ''}`}
+        >
+          K
+        </div>
+        <div 
+          id='l' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('l') ? styles.usedLetter : ''}`}
+        >
+          L
+        </div>
+        <div 
+          id='enter' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${styles.enterTop}`}
+        >
+        </div>
       </div>
       <div className={styles.keyboardRow}>
-        <div id='backspace' onClick={props.updateGameState} className={`${styles.key} ${styles.backspace}`}>⌫</div>
-        <div id='z' onClick={props.updateGameState} className={styles.key}>Z</div>
-        <div id='x' onClick={props.updateGameState} className={styles.key}>X</div>
-        <div id='c' onClick={props.updateGameState} className={styles.key}>C</div>
-        <div id='v' onClick={props.updateGameState} className={styles.key}>V</div>
-        <div id='b' onClick={props.updateGameState} className={styles.key}>B</div>
-        <div id='n' onClick={props.updateGameState} className={styles.key}>N</div>
-        <div id='m' onClick={props.updateGameState} className={styles.key}>M</div>
-        <div id='enter' onClick={props.updateGameState} className={`${styles.key} ${styles.enterLeft}`}></div>
-        <div id='enter' onClick={props.updateGameState} className={`${styles.key} ${styles.enterRight}`}>↵</div>
+        <div 
+          id='backspace' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${styles.backspace}`}
+        >
+          ⌫
+        </div>
+        <div 
+          id='z'
+          onClick={updateGameState}
+          className={`${styles.key} ${usedLetters.includes('z') ? styles.usedLetter : ''}`}
+        >
+          Z
+        </div>
+        <div 
+          id='x' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('x') ? styles.usedLetter : ''}`}
+        >
+          X
+        </div>
+        <div 
+          id='c' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('c') ? styles.usedLetter : ''}`}
+        >
+          C
+        </div>
+        <div 
+          id='v' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('v') ? styles.usedLetter : ''}`}
+        >
+          V
+        </div>
+        <div 
+          id='b' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('b') ? styles.usedLetter : ''}`}
+        >
+          B
+        </div>
+        <div 
+          id='n' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('n') ? styles.usedLetter : ''}`}
+        >
+          N
+        </div>
+        <div 
+          id='m' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${usedLetters.includes('m') ? styles.usedLetter : ''}`}
+        >
+          M
+        </div>
+        <div 
+          id='enter' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${styles.enterLeft}`}
+        >
+        </div>
+        <div 
+          id='enter' 
+          onClick={updateGameState} 
+          className={`${styles.key} ${styles.enterRight}`}
+        >
+          ↵
+        </div>
       </div>
     </div>
   )
