@@ -74,6 +74,10 @@ const GameBoard = ({ wordCount }) => {
     else if (loss) setMessage(messages.loss)
   }, [winner, loss, messages.win, messages.loss, guesses, secretWords, guessLimit])
 
+  const onClick = (evt) => {
+    console.log(evt)
+  }
+
   return (
     <>
       <h1>{titles[wordCount]}</h1>
@@ -86,10 +90,11 @@ const GameBoard = ({ wordCount }) => {
             guessLimit={guessLimit}
             guesses={guesses}
             currentGuess={currentGuess}
+            onClick={onClick}
           />
         ))}
       </div>
-      {wordCount && <Keyboard />}
+      {wordCount && <Keyboard onClick={onClick} />}
     </>
   )
 }

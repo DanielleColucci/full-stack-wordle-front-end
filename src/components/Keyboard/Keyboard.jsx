@@ -1,10 +1,10 @@
 import styles from './Keyboard.module.css'
 
-const Keyboard = () => {
+const Keyboard = (props) => {
   return (
     <div className={styles.keyboard}>
       <div className={styles.keyboardRow}>
-        <div id='q' className={styles.key}>Q</div>
+        <div id='q' onClick={props.onClick} className={styles.key}>Q</div>
         <div id='w' className={styles.key}>W</div>
         <div id='e' className={styles.key}>E</div>
         <div id='r' className={styles.key}>R</div>
