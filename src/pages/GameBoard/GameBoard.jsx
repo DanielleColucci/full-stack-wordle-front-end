@@ -1,5 +1,5 @@
 import styles from './GameBoard.module.css'
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import * as wordlist from '../../data/wordlist'
 import * as utilities from '../../utilities/utilities'
 import Board from "../../components/Board/Board"
@@ -40,42 +40,9 @@ const GameBoard = ({ wordCount }) => {
     setLoss(false)
     setMessage(messages.intro)
   }, [messages.intro, wordCount])
-  
-  useEffect(() => {
-    const handleInput = (e) => {
-      const key = e.key.toLowerCase()
-      if (!winner && !loss) {
-        if (key.length === 1 && key >= 'a' && key <= 'z' && charCount < 5) {
-          setCurrentGuess(currentGuess + key)
-          setCharCount(charCount + 1)
-        } else if (key === 'backspace' && charCount > 0) {
-          setCurrentGuess(currentGuess.slice(0, -1))
-          setCharCount(charCount - 1)
-        } else if (key === 'enter' && charCount === 5){
-          if (wordlist.checkWord(currentGuess)) {
-            setGuesses([...guesses, currentGuess])
-            setMessage('')
-            setCurrentGuess('')
-            setCharCount(0)
-          }
-        }
-      }
-    }
-    window.addEventListener('keydown', handleInput)
-    return () => {
-      window.removeEventListener('keydown', handleInput)
-    }
-  }, [currentGuess, charCount, winner, loss, messages.win, messages.loss, guesses, secretWords, guessLimit])
 
-  useEffect(() => {
-    setWinner(utilities.checkWinner(guesses, secretWords))
-    setLoss(utilities.checkLoss(guesses, guessLimit))
-    if (winner) setMessage(messages.win)
-    else if (loss) setMessage(messages.loss)
-  }, [winner, loss, messages.win, messages.loss, guesses, secretWords, guessLimit])
-
-  const onClick = (evt) => {
-    const key = evt.target.id
+  const updateGameState = useCallback((evt) => {
+    const key = evt.type === 'click' ? evt.target.id : evt.key.toLowerCase()
     if (!winner && !loss) {
       if (key.length === 1 && key >= 'a' && key <= 'z' && charCount < 5) {
         setCurrentGuess(currentGuess + key)
@@ -83,7 +50,7 @@ const GameBoard = ({ wordCount }) => {
       } else if (key === 'backspace' && charCount > 0) {
         setCurrentGuess(currentGuess.slice(0, -1))
         setCharCount(charCount - 1)
-      } else if (key === 'enter' && charCount === 5) {
+      } else if (key === 'enter' && charCount === 5){
         if (wordlist.checkWord(currentGuess)) {
           setGuesses([...guesses, currentGuess])
           setMessage('')
@@ -92,7 +59,21 @@ const GameBoard = ({ wordCount }) => {
         }
       }
     }
-  }
+  }, [charCount, currentGuess, guesses, loss, winner])
+  
+  useEffect(() => {
+    window.addEventListener('keydown', updateGameState)
+    return () => {
+      window.removeEventListener('keydown', updateGameState)
+    }
+  }, [updateGameState])
+
+  useEffect(() => {
+    setWinner(utilities.checkWinner(guesses, secretWords))
+    setLoss(utilities.checkLoss(guesses, guessLimit))
+    if (winner) setMessage(messages.win)
+    else if (loss) setMessage(messages.loss)
+  }, [winner, loss, messages.win, messages.loss, guesses, secretWords, guessLimit])
 
   return (
     <>
@@ -106,11 +87,10 @@ const GameBoard = ({ wordCount }) => {
             guessLimit={guessLimit}
             guesses={guesses}
             currentGuess={currentGuess}
-            onClick={onClick}
           />
         ))}
       </div>
-      {wordCount && <Keyboard onClick={onClick} />}
+      {wordCount && <Keyboard updateGameState={updateGameState} />}
     </>
   )
 }
