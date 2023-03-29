@@ -4,6 +4,10 @@
   align-items: center;
   justify-content: center;
   gap: 2px;
+  background-color: black;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 
 .keyboardRow {
@@ -21,6 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
 .key:hover {
