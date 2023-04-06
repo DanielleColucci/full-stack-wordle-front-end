@@ -2,6 +2,7 @@ import styles from './GameBoard.module.css'
 import { useState, useEffect, useCallback } from "react"
 import * as wordlist from '../../data/wordlist'
 import * as utilities from '../../utilities/utilities'
+import * as scoreService from '../../services/scoreService'
 import Board from "../../components/Board/Board"
 import Keyboard from '../../components/Keyboard/Keyboard'
 
@@ -76,9 +77,15 @@ const GameBoard = ({ wordCount }) => {
   useEffect(() => {
     setWinner(utilities.checkWinner(guesses, secretWords))
     setLoss(utilities.checkLoss(guesses, guessLimit))
-    if (winner) setMessage(messages.win)
-    else if (loss) setMessage(messages.loss)
-  }, [winner, loss, messages.win, messages.loss, guesses, secretWords, guessLimit])
+    if (winner) {
+      setMessage(messages.win)
+      scoreService.create(winner, wordCount, guesses.length)
+    }
+    else if (loss) {
+      setMessage(messages.loss)
+      scoreService.create(winner, wordCount, guesses.length)
+    }
+  }, [winner, loss, messages.win, messages.loss, guesses, secretWords, guessLimit, wordCount])
 
   return (
     <>
