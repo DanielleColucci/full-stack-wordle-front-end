@@ -22,6 +22,18 @@ const create = async (mode, numGuesses) => {
   }
 }
 
+const modeIndex = async (mode) => {
+  try {
+    const res = await fetch(BASE_URL, {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export { 
   create,
+  modeIndex,
 }
