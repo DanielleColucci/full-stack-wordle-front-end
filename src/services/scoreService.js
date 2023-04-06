@@ -22,9 +22,9 @@ const create = async (mode, numGuesses) => {
   }
 }
 
-const modeIndex = async (mode) => {
+const modeIndex = async (mode, user) => {
   try {
-    const res = await fetch(BASE_URL, {
+    const res = await fetch(`${BASE_URL}/${user.profile.id}/${mode}`, {
       'Authorization': `Bearer ${tokenService.getToken()}`,
     })
     return res.json()
