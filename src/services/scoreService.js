@@ -2,8 +2,9 @@ import * as tokenService from './tokenService'
 
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/scores`
 
-const create = async (mode, numGuesses) => {
+const create = async (winner, mode, numGuesses) => {
   const scoreData = {
+    win: winner ? true : false,
     mode: mode,
     value: numGuesses - mode + 1
   }
