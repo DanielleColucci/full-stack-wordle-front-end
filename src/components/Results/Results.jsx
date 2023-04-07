@@ -15,10 +15,15 @@ const Results = ({ wordCount, user, message}) => {
 
   // counting number of each win option (count+1, count+2, etc) and losses, then calculating percentages
   // array is of format [1, 2, 3, 4, 5, 6, losses]
-  const resultsArr = new Array(7).fill(0)
+  const resultsArr = new Array(6).fill(0)
+  let loss = 0
   scores.forEach(s => {
-    if (!s.win) resultsArr[6]++
-    else resultsArr[s.value - 1]++
+    if (s.win) resultsArr[s.value - 1]++
+    else loss++
+  })
+  const widths = resultsArr.map(result => {
+
+    return Math.floor(result / Math.max(...resultsArr) * 100)
   })
   resultsArr.forEach((result,idx) => {
     resultsArr[idx] = Math.floor(result / scores.length * 100)
@@ -33,7 +38,7 @@ const Results = ({ wordCount, user, message}) => {
             <div className={styles.label}>{wordCount}</div>
             <div 
               className={styles.bar}
-              style={{width: `${resultsArr[0]}%`}}
+              style={{width: `${widths[0]}%`}}
             ></div>
             <div className={styles.result}>{resultsArr[0]}</div>
           </div>
@@ -41,7 +46,7 @@ const Results = ({ wordCount, user, message}) => {
             <div className={styles.label}>{wordCount + 1}</div>
             <div 
               className={styles.bar}
-              style={{width: `${resultsArr[2]}%`}}
+              style={{width: `${widths[1]}%`}}
             ></div>
             <div className={styles.result}>{resultsArr[1]}</div>
           </div>
@@ -49,7 +54,7 @@ const Results = ({ wordCount, user, message}) => {
             <div className={styles.label}>{wordCount + 2}</div>
             <div 
               className={styles.bar}
-              style={{width: `${resultsArr[2]}%`}}
+              style={{width: `${widths[2]}%`}}
             ></div>
             <div className={styles.result}>{resultsArr[2]}</div>
           </div>
@@ -57,7 +62,7 @@ const Results = ({ wordCount, user, message}) => {
             <div className={styles.label}>{wordCount + 3}</div>
             <div 
               className={styles.bar}
-              style={{width: `${resultsArr[3]}%`}}
+              style={{width: `${widths[3]}%`}}
             ></div>
             <div className={styles.result}>{resultsArr[3]}</div>
           </div>
@@ -65,7 +70,7 @@ const Results = ({ wordCount, user, message}) => {
             <div className={styles.label}>{wordCount + 4}</div>
             <div 
               className={styles.bar}
-              style={{width: `${resultsArr[4]}%`}}
+              style={{width: `${widths[4]}%`}}
             ></div>
             <div className={styles.result}>{resultsArr[4]}</div>
           </div>
@@ -73,7 +78,7 @@ const Results = ({ wordCount, user, message}) => {
             <div className={styles.label}>{wordCount + 5}</div>
             <div 
               className={styles.bar}
-              style={{width: `${resultsArr[5]}%`}}
+              style={{width: `${widths[5]}%`}}
             ></div>
             <div className={styles.result}>{resultsArr[5]}</div>
           </div>
