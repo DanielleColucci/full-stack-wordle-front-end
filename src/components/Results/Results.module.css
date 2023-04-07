@@ -38,3 +38,8 @@
   width: 100%;
   gap: 8px;
 }
+
+.bar {
+  height: 20px;
+  background-color: red;
+}
