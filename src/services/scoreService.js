@@ -25,8 +25,9 @@ const create = async (winner, mode, numGuesses) => {
 
 const modeIndex = async (mode, user) => {
   try {
+    console.log(user.profile.id)
     const res = await fetch(`${BASE_URL}/${user.profile.id}/${mode}`, {
-      'Authorization': `Bearer ${tokenService.getToken()}`,
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`} ,
     })
     return res.json()
   } catch (error) {

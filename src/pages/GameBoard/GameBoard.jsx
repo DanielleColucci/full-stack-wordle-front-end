@@ -7,7 +7,7 @@ import Board from "../../components/Board/Board"
 import Keyboard from '../../components/Keyboard/Keyboard'
 import Results from '../../components/Results/Results'
 
-const GameBoard = ({ wordCount }) => {
+const GameBoard = ({ wordCount, user }) => {
   const [guessLimit, setGuessLimit] = useState()
   const [secretWords, setSecretWords] = useState([])
   const [guesses, setGuesses] = useState([])
@@ -106,6 +106,8 @@ const GameBoard = ({ wordCount }) => {
       {wordCount && <Keyboard updateGameState={updateGameState} usedLetters={usedLetters}/>}
       {(winner || loss) && <Results
         message={message}
+        user={user}
+        wordCount={wordCount}
       />}
     </>
   )
