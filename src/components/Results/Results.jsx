@@ -33,6 +33,16 @@ const Results = ({ wordCount, user, message}) => {
     <div className={styles.overlay}>
       <div className={styles.container}>
         <p className={styles.message}>{message}</p>
+        <div className={styles.statsContainer}>
+          <div className={styles.statUnit}>
+            <div className={styles.stat}>{scores.length}</div>
+            <div className={styles.statsLabel}>Games Played</div>
+          </div>
+          <div className={styles.statUnit}>
+            <div className={styles.stat}>{scores.length - loss}</div>
+            <div className={styles.statsLabel}>Games Won</div>
+          </div>
+        </div>
         <div className={styles.resultsContainer}>
           <div className={styles.resultsRow}>
             <div className={styles.label}>{wordCount}</div>
