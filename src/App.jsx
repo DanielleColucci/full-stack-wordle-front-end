@@ -75,6 +75,7 @@ const App = () => {
           element={
             <GameBoard 
               wordCount={wordCount}
+              user={user}
             />
           }
         />

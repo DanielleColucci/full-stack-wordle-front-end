@@ -1,5 +1,5 @@
 function checkWinner(guesses, secretWords) {
-  return secretWords.every(word => guesses.includes(word))
+  return guesses.length ? secretWords.every(word => guesses.includes(word)) : false
 }
 
 function checkLoss(guesses, guessLimit) {
