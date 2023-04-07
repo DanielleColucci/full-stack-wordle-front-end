@@ -104,7 +104,9 @@ const GameBoard = ({ wordCount }) => {
         ))}
       </div>
       {wordCount && <Keyboard updateGameState={updateGameState} usedLetters={usedLetters}/>}
-      {(winner || loss) && <Results/>}
+      {(winner || loss) && <Results
+        message={message}
+      />}
     </>
   )
 }

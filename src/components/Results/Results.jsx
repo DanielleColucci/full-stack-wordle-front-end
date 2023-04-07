@@ -4,7 +4,7 @@ const Results = (props) => {
   return (
     <div className={styles.overlay}>
       <div className={styles.container}>
-        <h1 className={styles.message}>This is a results component</h1>
+        <h1 className={styles.message}>{props.message}</h1>
       </div>
     </div>
   )
