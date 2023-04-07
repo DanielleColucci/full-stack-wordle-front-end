@@ -5,6 +5,7 @@ import * as utilities from '../../utilities/utilities'
 import * as scoreService from '../../services/scoreService'
 import Board from "../../components/Board/Board"
 import Keyboard from '../../components/Keyboard/Keyboard'
+import Results from '../../components/Results/Results'
 
 const GameBoard = ({ wordCount }) => {
   const [guessLimit, setGuessLimit] = useState()
@@ -103,6 +104,7 @@ const GameBoard = ({ wordCount }) => {
         ))}
       </div>
       {wordCount && <Keyboard updateGameState={updateGameState} usedLetters={usedLetters}/>}
+      {(winner || loss) && <Results/>}
     </>
   )
 }
