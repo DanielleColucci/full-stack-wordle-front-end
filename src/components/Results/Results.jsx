@@ -1,7 +1,9 @@
+import styles from './Results.module.css'
+
 const Results = (props) => {
   return (
     <>
-      <h1>This is a results component</h1>
+      <h1 className={styles.message}>This is a results component</h1>
     </>
   )
 }
