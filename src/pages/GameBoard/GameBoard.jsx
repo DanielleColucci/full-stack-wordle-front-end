@@ -80,13 +80,14 @@ const GameBoard = ({ wordCount, user }) => {
     setLoss(utilities.checkLoss(guesses, guessLimit))
     if (winner) {
       setMessage(messages.win)
-      scoreService.create(winner, wordCount, guesses.length)
     }
     else if (loss) {
       setMessage(messages.loss)
+    }
+    if (user) {
       scoreService.create(winner, wordCount, guesses.length)
     }
-  }, [winner, loss, messages.win, messages.loss, guesses, secretWords, guessLimit, wordCount])
+  }, [winner, loss, messages.win, messages.loss, guesses, secretWords, guessLimit, wordCount, user])
 
   return (
     <>
