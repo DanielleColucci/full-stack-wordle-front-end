@@ -28,7 +28,7 @@ const GameBoard = ({ wordCount, user }) => {
 
   const messages = {
     intro: `Try to guess ${wordCount} words in ${guessLimit} guesses!`,
-    win: 'You won! Play again?',
+    win: `You got it in ${guesses.length}!`,
     loss: `Better luck next time! The ${wordCount === 1 ? `word was: ${secretWords[0]}` : `words were: ${secretWords.join(', ')}`}`,
     invalid: 'invalid guess'
   }
