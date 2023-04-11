@@ -26,10 +26,28 @@
   box-shadow: 1px 1px 8px #8e8e8e88;
 }
 
+.container > p > a {
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+}
+
 .message {
   text-align: center;
-  font-size: 18px;
+  font-size: 24px;
   margin: 0;
+}
+
+.loginMessage {
+  padding-top: 24px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.signupMessage {
+  text-align: center;
+  margin-top: 0;
+  font-size: 16px;
 }
 
 .statsContainer {
