@@ -5,6 +5,7 @@ import * as scoreService from '../../services/scoreService'
 
 const Results = ({ wordCount, user, message}) => {
   const [scores, setScores] = useState([])
+  const [open, setOpen] = useState(true)
 
   useEffect(() => {
     const fetchScores = async () => {
@@ -32,11 +33,16 @@ const Results = ({ wordCount, user, message}) => {
     })
   }
 
+  const changeOpen = () => {
+    setOpen(!open)
+  }
+
   return (
     <>
       {user ? 
-        <div className={styles.overlay}>
+          open && <div className={styles.overlay}>
           <div className={styles.container}>
+            <button onClick={changeOpen}>x</button>
             <p className={styles.message}>{message}</p>
             <div className={styles.statsContainer}>
               <div className={styles.statUnit}>
@@ -101,7 +107,7 @@ const Results = ({ wordCount, user, message}) => {
           </div>
         </div>
         :
-        <div className={styles.overlay}>
+        open && <div className={styles.overlay}>
           <div className={styles.container}>
             <p className={styles.message}>{message}</p>
             <p className={styles.loginMessage}><Link to="/login">Log in</Link> to see game stats</p>
