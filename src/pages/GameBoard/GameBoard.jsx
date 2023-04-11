@@ -91,7 +91,8 @@ const GameBoard = ({ wordCount, user }) => {
   return (
     <>
       <h1>{titles[wordCount]}</h1>
-      <p>{message}</p>
+      <p>{wordCount && !winner && !loss && message}</p>
+      <p>{!wordCount && 'Select a mode to play'}</p>
       <div className={styles.gameBoard}>
         {secretWords.map((word, idx) => (
           <Board 
