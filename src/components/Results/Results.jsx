@@ -1,4 +1,5 @@
 import styles from './Results.module.css'
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import * as scoreService from '../../services/scoreService'
 
@@ -100,7 +101,13 @@ const Results = ({ wordCount, user, message}) => {
           </div>
         </div>
         :
-        <div>No data</div>
+        <div className={styles.overlay}>
+          <div className={styles.container}>
+            <p className={styles.message}>{message}</p>
+            <p><Link to="/login">Log in</Link> to see game stats!</p>
+            <p>Don't have an account? <Link to="/signup">Sign up</Link> to track your scores!</p>
+          </div>
+        </div>
       }
     </>
   )
