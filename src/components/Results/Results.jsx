@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import * as scoreService from '../../services/scoreService'
 
-const Results = ({ wordCount, user, message}) => {
+const Results = ({ wordCount, user, message, resetGame }) => {
   const [scores, setScores] = useState([])
   const [open, setOpen] = useState(true)
 
@@ -37,6 +37,11 @@ const Results = ({ wordCount, user, message}) => {
     setOpen(!open)
   }
 
+  const onClick = () => {
+    resetGame()
+    setOpen(!open)
+  }
+
   return (
     <>
       {user ? 
@@ -44,6 +49,7 @@ const Results = ({ wordCount, user, message}) => {
           <div className={styles.container}>
             <button onClick={changeOpen}>x</button>
             <p className={styles.message}>{message}</p>
+            <button onClick={onClick}>Play again?</button>
             <div className={styles.statsContainer}>
               <div className={styles.statUnit}>
                 <div className={styles.stat}>{scores.length}</div>
