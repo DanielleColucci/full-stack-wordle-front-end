@@ -116,6 +116,7 @@ const Results = ({ wordCount, user, message, resetGame }) => {
         open && <div className={styles.overlay}>
           <div className={styles.container}>
             <p className={styles.message}>{message}</p>
+            <button onClick={onClick}>Play again?</button>
             <p className={styles.loginMessage}><Link to="/login">Log in</Link> to see game stats</p>
             <p className={styles.signupMessage}>Don't have an account?<br></br> <Link to="/signup">Sign up</Link> to track your scores!</p>
           </div>
