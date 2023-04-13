@@ -35,7 +35,8 @@ const GameBoard = ({ wordCount, user }) => {
 
   useEffect(() => {
     setSecretWords(wordlist.getWord(wordCount))
-  }, [wordCount])
+    setMessage(messages.intro)
+  }, [wordCount, messages.intro])
 
   useEffect(() => {
     setGuessLimit(wordCount + 5)
@@ -45,8 +46,7 @@ const GameBoard = ({ wordCount, user }) => {
     setWinner(false)
     setLoss(false)
     setUsedLetters([])
-    setMessage(messages.intro)
-  }, [messages.intro, secretWords, wordCount])
+  }, [secretWords, wordCount])
 
   const updateGameState = useCallback((evt) => {
     const key = evt.type === 'click' ? evt.target.id : evt.key.toLowerCase()
