@@ -6,8 +6,10 @@ import * as scoreService from '../../services/scoreService'
 import Board from "../../components/Board/Board"
 import Keyboard from '../../components/Keyboard/Keyboard'
 import Results from '../../components/Results/Results'
+import DifficultySelect from '../../components/DifficultySelect/DifficultySelect'
 
-const GameBoard = ({ wordCount, user }) => {
+const GameBoard = ({ user }) => {
+  const [wordCount, setWordCount] = useState()
   const [guessLimit, setGuessLimit] = useState()
   const [secretWords, setSecretWords] = useState([])
   const [guesses, setGuesses] = useState([])
@@ -47,6 +49,10 @@ const GameBoard = ({ wordCount, user }) => {
     setLoss(false)
     setUsedLetters([])
   }, [secretWords, wordCount])
+
+  const updateWordCount = (num) => {
+    setWordCount(num)
+  }
 
   const updateGameState = useCallback((evt) => {
     const key = evt.type === 'click' ? evt.target.id : evt.key.toLowerCase()
@@ -98,6 +104,7 @@ const GameBoard = ({ wordCount, user }) => {
 
   return (
     <>
+      <DifficultySelect updateWordCount={updateWordCount}/>
       <h1>{titles[wordCount]}</h1>
       <p>{wordCount && !winner && !loss && message}</p>
       <p>{!wordCount && 'Select a mode to play'}</p>

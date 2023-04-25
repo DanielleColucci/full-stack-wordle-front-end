@@ -23,7 +23,7 @@ import './App.css'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
-  const [wordCount, setWordCount] = useState()
+  // const [wordCount, setWordCount] = useState()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -36,14 +36,14 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  const updateWordCount = (num) => {
-    setWordCount(num)
-  }
+  // const updateWordCount = (num) => {
+  //   setWordCount(num)
+  // }
 
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
-      <DifficultySelect updateWordCount={updateWordCount}/>
+      {/* <DifficultySelect updateWordCount={updateWordCount}/> */}
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -74,7 +74,7 @@ const App = () => {
           path="play"
           element={
             <GameBoard 
-              wordCount={wordCount}
+              // wordCount={wordCount}
               user={user}
             />
           }
