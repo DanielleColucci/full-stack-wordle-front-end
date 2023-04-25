@@ -16,17 +16,19 @@
   gap: 16px;
 }
 
-.container > * > *{
-  background-color: white;
+.container > * > * {
+  font-size: 20px;
+  font-weight: bold;
+  box-sizing: border-box;
+  color: white;
   border-radius: 25px;
   padding: 8px 16px;
-  color: black;
   text-decoration: none;
 }
 
 .container > * > *:hover {
-  background-color: #ffffffd1;
-  text-decoration: underline;
+  color: black;
+  background-color: #ffffff;
 }
 
 .container > * > *:active {
