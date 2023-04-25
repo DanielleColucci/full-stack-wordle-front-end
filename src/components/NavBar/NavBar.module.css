@@ -6,12 +6,17 @@
 .container {
   padding: 16px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .container > * {
+  display: flex;
+  gap: 16px;
+}
+
+.container > * > *{
   background-color: white;
   border-radius: 25px;
   padding: 8px 16px;
@@ -19,11 +24,11 @@
   text-decoration: none;
 }
 
-.container > *:hover {
+.container > * > *:hover {
   background-color: #ffffffd1;
   text-decoration: underline;
 }
 
-.container > *:active {
+.container > * > *:active {
   transform: scale(0.92);
 }
