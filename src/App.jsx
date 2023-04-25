@@ -13,7 +13,6 @@ import GameBoard from './pages/GameBoard/GameBoard'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
-import DifficultySelect from './components/DifficultySelect/DifficultySelect'
 
 // services
 import * as authService from './services/authService'
@@ -23,7 +22,6 @@ import './App.css'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
-  // const [wordCount, setWordCount] = useState()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -36,14 +34,9 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  // const updateWordCount = (num) => {
-  //   setWordCount(num)
-  // }
-
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
-      {/* <DifficultySelect updateWordCount={updateWordCount}/> */}
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -74,7 +67,6 @@ const App = () => {
           path="play"
           element={
             <GameBoard 
-              // wordCount={wordCount}
               user={user}
             />
           }
